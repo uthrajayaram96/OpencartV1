@@ -62,7 +62,7 @@ public Properties p;
 				case "firefox": cap.setBrowserName("firefox");break;
 				default: System.out.println("No matching Browser found!"); return;
 			}
-			driver = new RemoteWebDriver(new URL("http://192.168.1.11:4444"),cap);
+			driver = new RemoteWebDriver(new URL("http://192.168.1.11:4444/wd/hub"),cap);
 		}
 		else
 		{  //execution_env = local

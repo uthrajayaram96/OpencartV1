@@ -7,6 +7,7 @@ C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\testBase\BaseClass.jav
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\testCases\TC001_AccountRegisterationTest.java
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\testCases\TC002_LoginTest.java
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\testCases\TC003_LoginDataDrivenTest.java
+C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\testCases\TC004_SearchTest.java
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\utilities\DataProviders.java
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\utilities\ExcelUtility.java
 C:\Users\uthra\eclipse-workspace\OpencartV1\src\test\java\utilities\ExtentReportManager.java
