@@ -26,9 +26,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 public class BaseClass {
-public static WebDriver driver;
+//public static WebDriver driver;
 	/* UnComment line 31 and comment line 29 while running the CossBrowserTesting.xml file */
-//public WebDriver driver;
+public WebDriver driver;
 public Logger logger;
 public Properties p;
 	
@@ -62,7 +62,11 @@ public Properties p;
 				case "firefox": cap.setBrowserName("firefox");break;
 				default: System.out.println("No matching Browser found!"); return;
 			}
-			driver = new RemoteWebDriver(new URL("http://192.168.1.11:4444/wd/hub"),cap);
+			
+			//this is for running the selenium grid(standalone and distributed) or docker setup -- the url doesn't change
+			//make sure to make execution env is remote in config file
+			driver = new RemoteWebDriver(new URL("http://192.168.1.20:4444/wd/hub"),cap);
+			
 		}
 		else
 		{  //execution_env = local

@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.TC001_AccountRegisterationTest">
+      <class name="testCases.TC005_AddToWishListTest">
         <methods>
+          <include name="verifyAddingSearchedProductsToWishList"/>
           <include name="teardown"/>
-          <include name="testAccountRegisteration"/>
+          <include name="logout"/>
           <include name="setup"/>
+          <include name="login"/>
+          <include name="verifyWishListHeaderOption"/>
         </methods>
-      </class> <!-- testCases.TC001_AccountRegisterationTest -->
+      </class> <!-- testCases.TC005_AddToWishListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

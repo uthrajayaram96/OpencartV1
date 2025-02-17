@@ -77,6 +77,14 @@ public class ExtentReportManager implements ITestListener  {
 		test.log(Status.PASS,result.getName()+" got successfully executed");
 		
 	}
+	/*
+	 * Why is this causing a NullPointerException? Line 100
+	   You are creating a new instance of BaseClass using new BaseClass(), but this new instance does not have a WebDriver initialized.
+	   In your BaseClass, driver is initialized in the setup() method, but this method is never called on the new BaseClass instance.
+	   So, captureScreen() tries to take a screenshot, but driver is null, leading to a NullPointerException.
+	   
+	   Fix is - Uses the actual test instance (result.getInstance()) that already has a WebDriver initialize
+	 */
 
 	public void onTestFailure(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
@@ -85,15 +93,23 @@ public class ExtentReportManager implements ITestListener  {
 		test.log(Status.FAIL,result.getName()+" got failed");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 		
-		try {
-			
-			String imgPath = new BaseClass().captureScreen(result.getName());
-			//String imgPath = captureScreen(result.getName());
-			test.addScreenCaptureFromPath(imgPath);
-			
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+		Object testInstance = result.getInstance();
+	    if (testInstance instanceof BaseClass) {
+	        BaseClass baseclassObj = (BaseClass) testInstance;
+			try {
+				
+				String imgPath = baseclassObj.captureScreen(result.getName());	
+				//String imgPath = new BaseClass().captureScreen(result.getName());
+				//String imgPath = captureScreen(result.getName());
+				test.addScreenCaptureFromPath(imgPath);
+				
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+	    }
+	    else {
+	    	System.out.println("Failed to capture screenshot: Test instance is not of type BaseClass");
+	    }
 	}
 
 	public void onTestSkipped(ITestResult result) {

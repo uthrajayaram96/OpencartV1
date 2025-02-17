@@ -1,3 +1,9 @@
+# If you don't want to manually pull images, create containser and execute them,
+# we can put this as .yaml file.
+# Go to location of this file -> execute the command -> docker-compose up
+# to stop -> docker-compose down
+# go to the grid-docker xml file and run the tests
+
 version: '3'
 
 services:

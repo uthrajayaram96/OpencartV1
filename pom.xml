@@ -101,5 +101,10 @@
 	    <version>1.6.0</version>
 	</dependency>
 
+	<dependency>
+		<groupId>com.automation</groupId>
+		<artifactId>karateframework</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
 </project>
